@@ -113,7 +113,7 @@ if [ $? -ne 0 ];then
   echo '安装Git后再运行此脚本，\033[1;31m在系统弹窗中点击“安装”按钮\033[0m'
   xcode-select --install
 fi
-sudo git clone https://mirrors.ustc.edu.cn/brew.git ${HOMEBREW_REPOSITORY}
+sudo git clone --depth 1 https://mirrors.ustc.edu.cn/brew.git ${HOMEBREW_REPOSITORY}
 JudgeSuccess
 echo '==> 创建brew的替身'
 find ${HOMEBREW_PREFIX}/bin -name brew -exec sudo rm -f {} \;
@@ -121,12 +121,12 @@ sudo ln -s ${HOMEBREW_PREFIX}/Homebrew/bin/brew ${HOMEBREW_PREFIX}/bin/brew
 JudgeSuccess
 echo '==> 克隆Homebrew Core(224M+) '
 sudo mkdir -p ${HOMEBREW_PREFIX}/Homebrew/Library/Taps/homebrew/homebrew-core
-sudo git clone https://mirrors.ustc.edu.cn/homebrew-core.git ${HOMEBREW_PREFIX}/Homebrew/Library/Taps/homebrew/homebrew-core/
+sudo git clone --depth 1 https://mirrors.ustc.edu.cn/homebrew-core.git ${HOMEBREW_PREFIX}/Homebrew/Library/Taps/homebrew/homebrew-core/
 JudgeSuccess
 echo '==> 克隆Homebrew Cask(248M+) 类似AppStore 
 \033[1;36m此处如果显示Password表示需要再次输入开机密码，输入完后回车\033[0m'
 sudo mkdir -p ${HOMEBREW_PREFIX}/Homebrew/Library/Taps/homebrew/homebrew-cask
-sudo git clone https://mirrors.ustc.edu.cn/homebrew-cask.git ${HOMEBREW_PREFIX}/Homebrew/Library/Taps/homebrew/homebrew-cask/
+sudo git clone --depth 1 https://mirrors.ustc.edu.cn/homebrew-cask.git ${HOMEBREW_PREFIX}/Homebrew/Library/Taps/homebrew/homebrew-cask/
 JudgeSuccess
 echo '==> 删除之前brew环境，重新创建
 \033[1;36m此处如果显示Password表示需要再次输入开机密码，输入完后回车\033[0m'
